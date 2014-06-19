@@ -1,7 +1,7 @@
 -- You receive notice that the payment with id of 9 is $10 too low.
 -- Alter that row so that it is corrected
 UPDATE payments SET amount = (amount + 10.00) WHERE id = 9;
---had trouble with amount = (amount + 10.00)
+
 
 -- Delete all payments with an amount under $2
 DELETE FROM payments WHERE amount < 2;
@@ -17,7 +17,8 @@ SELECT * FROM payments ORDER BY amount DESC;
 SELECT DISTINCT recipient_name FROM payments;
 
 -- In a single query, select all payments created in the past week
-
+-- ***I AM ASSUMING TODAY'S DATE IS MAY 23, 2014 BECAUSE ALL THE DATA IS IN MAY***
+SELECT * FROM payments WHERE (created_at < '2014-05-23') AND (created_at > '2014-05-16');
 
 -- In a single query, select all payments with a blank description
 SELECT * FROM payments WHERE description IS NULL;
